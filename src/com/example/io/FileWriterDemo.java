@@ -7,11 +7,12 @@ public class FileWriterDemo {
 
 	public static void main(String[] args) throws Exception{
 		// TODO Auto-generated method stub
-        File file=new File("E:\\ÎÄ¼şÊäÈë.txt");
+		File file=new File("E:\\æ–‡ä»¶è¾“å…¥.txt");
 		FileWriter fw=new FileWriter(file,true);
-		String str="\nºÃºÃÑ§Ï°£¬ÌìÌìÏòÉÏ";
+		String str="\nå¥½å¥½å­¦ä¹ ï¼Œå¤©å¤©å‘ä¸Š";
 		fw.write(str);
 		fw.close();
 	}
 
 }
+

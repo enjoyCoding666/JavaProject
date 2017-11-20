@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/example/collection/HashMapDemo.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/example/database/CrudTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/example/date/CalendarDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/date/CalendarDemo2.java" charset="UTF-8" />
@@ -17,7 +16,11 @@
     <file url="file://$PROJECT_DIR$/src/com/example/internet/EchoThread.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/internet/EchoThreadServer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/internet/InetAddressDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/io/FileReadDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/io/FileWriterDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/io/InputStreamDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/io/OutputStreamDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/io/ReadFileByLines.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/object/ObjectEquals.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/other/excel/ExcelDemo.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/example/other/excel/ExcelWriteDemo.java" charset="UTF-8" />
@@ -25,10 +28,6 @@
     <file url="file://$PROJECT_DIR$/src/com/example/regex/RegexDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/regex/RegexTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/string/EqualsTest.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/example/string/SetCharAtTest.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/example/string/SplitTest.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/example/string/StringDemo.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/example/string/StringNumber.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/example/thread/RunnableDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/example/thread/RunnableDemo2.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/com/example/string/WordsAmountTest.java" charset="GBK" />

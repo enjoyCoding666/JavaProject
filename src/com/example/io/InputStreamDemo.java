@@ -6,14 +6,14 @@ import java.io.InputStream;
 
 public class InputStreamDemo {
 
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-        File file=new File("E:\\文件输入.txt");
+    public static void main(String[] args) throws Exception {
+        // TODO Auto-generated method stub
+        File file=new File("E:\\鏂囦欢杈撳叆.txt");
         InputStream is=new FileInputStream(file);
         byte[] b=new byte[1024];
         int len=is.read(b);
         is.close();
-        System.out.println("文件内容为：\n"+new String(b,0,len));
-	}
+        System.out.println("鏂囦欢鍐呭涓猴細\n"+new String(b,0,len));
+    }
 
 }

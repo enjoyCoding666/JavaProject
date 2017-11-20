@@ -5,14 +5,14 @@ import java.io.FileReader;
 
 public class FileReadDemo {
 
-	public static void main(String[] args) throws Exception{
-		// TODO Auto-generated method stub
-        File file =new File("E:\\ÎÄ¼þÊäÈë.txt");
+    public static void main(String[] args) throws Exception{
+        // TODO Auto-generated method stub
+        File file =new File("E:\\æ–‡ä»¶è¾“å…¥.txt");
         FileReader fr=new FileReader(file);
         char[] c=new char[1024];
         int len=fr.read(c);
         fr.close();
-        System.out.println("ÎÄ¼þÄÚÈÝÎª:"+new String(c,0,len));
-	}
+        System.out.println("æ–‡ä»¶å†…å®¹ä¸º:"+new String(c,0,len));
+    }
 
 }

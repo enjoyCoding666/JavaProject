@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class FileWriterDemo {
-
 	public static void main(String[] args) throws Exception{
 		// TODO Auto-generated method stub
 		File file=new File("E:\\文件输入.txt");
@@ -13,6 +12,5 @@ public class FileWriterDemo {
 		fw.write(str);
 		fw.close();
 	}
-
 }
 

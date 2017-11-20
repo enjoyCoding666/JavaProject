@@ -1,11 +1,11 @@
-package com.example.list;
+package com.example.collection;
 
 public class ArrayTest {
 	public static void main(String args[])
 	  {int i,j;
 	   int intArray[]={20,1,-3,30,50};
-	   int len=intArray.length;      //»ñÈ¡Êý×é³¤¶È
-	   for(i=1;i< len;i++)                //Ã°ÅÝ·¨£¬´óµÄÊýÍùÏÂ³Á
+	   int len=intArray.length;      //ï¿½ï¿½È¡ï¿½ï¿½ï¿½é³¤ï¿½ï¿½
+	   for(i=1;i< len;i++)                //Ã°ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½
 	     for(j=0;j<=len-i-1;j++)
 	       if(intArray[j]>intArray[j+1])
 	         {int t=intArray[j];

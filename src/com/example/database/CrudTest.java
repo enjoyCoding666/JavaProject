@@ -17,38 +17,38 @@ public class CrudTest {
     static {
         try{
             Class.forName(DBDRIVER) ;
-            System.out.println("mysqlÇı¶¯³É¹¦¼ÓÔØ.");
+            System.out.println("mysqlé©±åŠ¨æˆåŠŸåŠ è½½.");
         }catch(ClassNotFoundException e){
-            System.out.println("mysqlÇı¶¯¼ÓÔØÊ§°Ü");
+            System.out.println("mysqlé©±åŠ¨åŠ è½½å¤±è´¥");
             e.printStackTrace() ;
         }
     }
 
     public static void main(String[] args) throws  Exception{
-              query();
-            insert();
+        query();
+        insert();
 //              update();
 //              delete();
-              System.out.println("ĞŞ¸ÄºóµÄÊı¾İ²éÑ¯ÈçÏÂ:");
-              query();
+        System.out.println("ä¿®æ”¹åçš„æ•°æ®æŸ¥è¯¢å¦‚ä¸‹:");
+        query();
     }
 
     public static void query() throws Exception{
-        Connection conn;  //Êı¾İ¿âÁ¬½Ó
-        Statement stmt;   //Êı¾İ¿â²Ù×÷
+        Connection conn;  //æ•°æ®åº“è¿æ¥
+        Statement stmt;   //æ•°æ®åº“æ“ä½œ
         String sql="select id,name,age from develops ";
-        conn= DriverManager.getConnection(URL,USER,PASSWORD); //Á¬½ÓÊı¾İ¿â
-        stmt=conn.createStatement();   //ÊµÀı»¯Statement¶ÔÏó
-        ResultSet rs=stmt.executeQuery(sql);      //Ö´ĞĞÊı¾İ¿â²éÑ¯²Ù×÷
-        while(rs.next()){        //Ö¸ÕëÒÆ¶¯ÏÂÒ»ĞĞ
+        conn= DriverManager.getConnection(URL,USER,PASSWORD); //è¿æ¥æ•°æ®åº“
+        stmt=conn.createStatement();   //å®ä¾‹åŒ–Statementå¯¹è±¡
+        ResultSet rs=stmt.executeQuery(sql);      //æ‰§è¡Œæ•°æ®åº“æŸ¥è¯¢æ“ä½œ
+        while(rs.next()){        //æŒ‡é’ˆç§»åŠ¨ä¸‹ä¸€è¡Œ
             String name=rs.getString(2);
-            int id=rs.getInt(1);             //»ñÈ¡Êı¾İ
+            int id=rs.getInt(1);             //è·å–æ•°æ®
             int age=rs.getInt(3);
             System.out.println("id:"+id+" name:"+name+" age:"+age);
         }
-        rs.close();                     //¹Ø±Õ½á¹û¼¯
-        stmt.close();                //²Ù×÷¹Ø±Õ
-        conn.close();                 //Êı¾İ¿â¹Ø±Õ
+        rs.close();                     //å…³é—­ç»“æœé›†
+        stmt.close();                //æ“ä½œå…³é—­
+        conn.close();                 //æ•°æ®åº“å…³é—­
     }
 
     public static void insert() throws Exception{
@@ -57,8 +57,8 @@ public class CrudTest {
         Statement stmt=conn.createStatement();
         String sql="insert into develops values ('zeng',1,28)";
         System.out.println(sql);
-        stmt.executeUpdate(sql);     //Ö´ĞĞ¸üĞÂ²Ù×÷
-        conn.commit();               //Ìá½»ÊÂÎñ
+        stmt.executeUpdate(sql);     //æ‰§è¡Œæ›´æ–°æ“ä½œ
+        conn.commit();               //æäº¤äº‹åŠ¡
         stmt.close();
         conn.close();
     }
@@ -69,7 +69,7 @@ public class CrudTest {
         Statement stmt=conn.createStatement();
         String sql="update develops set id=100 where id=1";
         System.out.println(sql);
-        stmt.executeUpdate(sql);     //Ö´ĞĞ¸üĞÂ²Ù×÷
+        stmt.executeUpdate(sql);     //æ‰§è¡Œæ›´æ–°æ“ä½œ
         stmt.close();
         conn.close();
     }
@@ -80,7 +80,7 @@ public class CrudTest {
         Statement stmt=conn.createStatement();
         String sql="delete  from develops where id=100 ";
         System.out.println(sql);
-        stmt.executeUpdate(sql);     //Ö´ĞĞ¸üĞÂ²Ù×÷
+        stmt.executeUpdate(sql);     //æ‰§è¡Œæ›´æ–°æ“ä½œ
         stmt.close();
         conn.close();
     }

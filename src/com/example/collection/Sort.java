@@ -15,7 +15,8 @@ public class Sort {
         Collections.sort(list, new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
-                return o1.getPhoneNumber().compareTo(o2.getPhoneNumber()) ;
+                return o1.getPhoneNumber().compareTo(o2.getPhoneNumber())==0 ?
+                        o1.getDoneCode().compareTo(o2.getDoneCode()) : o1.getPhoneNumber().compareTo(o2.getPhoneNumber()) ;
             }
         });
         return list;

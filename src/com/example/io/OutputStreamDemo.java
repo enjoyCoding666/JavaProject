@@ -13,7 +13,7 @@ public class OutputStreamDemo {
 	public static void main(String[] args)  throws Exception{
         // TODO Auto-generated method stub
         File file=new File("E:\\文件输入.txt");
-        FileOutputStream fos=new FileOutputStream(file,true);
+        OutputStream fos=new FileOutputStream(file,true);
         String str="Work hard!!\n";
         byte[] bytes=str.getBytes();
         fos.write(bytes);

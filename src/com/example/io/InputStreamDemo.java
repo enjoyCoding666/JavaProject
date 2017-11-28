@@ -8,7 +8,7 @@ public class InputStreamDemo {
     public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
         File file=new File("E:\\文件输入.txt");
-        FileInputStream fis=new FileInputStream(file);
+        InputStream fis=new FileInputStream(file);
         byte[] b=new byte[1024];
         int len=fis.read(b);
         fis.close();

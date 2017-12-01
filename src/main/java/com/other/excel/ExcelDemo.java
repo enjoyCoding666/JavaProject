@@ -5,46 +5,46 @@ import org.apache.poi.ss.usermodel.*;
 import java.io.*;
 
 /**
- * Excel¶ÁĞ´
- * ÎÄ¼ş£ºC:\Users\lenovo\Desktop\ExcelTest.xlsx
+ * Excelè¯»å†™
+ * æ–‡ä»¶ï¼šC:\Users\lenovo\Desktop\ExcelTest.xlsx
  */
 public class ExcelDemo {
     public static void main(String[] args) throws Exception {
-                 String input="C:\\Users\\lenovo\\Desktop\\ExcelTest.xlsx";
-//                 writeExcel(input,2007);           //xlsx¸ñÊ½ÓÃ2007,xls¸ñÊ½ÓÃ2003
-                 readExcel(input,2007);
+        String input="C:\\Users\\lenovo\\Desktop\\ExcelTest.xlsx";
+//                 writeExcel(input,2007);           //xlsxæ ¼å¼ç”¨2007,xlsæ ¼å¼ç”¨2003
+        readExcel(input,2007);
 
     }
 
 
-        public static  void readExcel(String file,int edition) throws Exception {//¶ÁÈ¡2003ºÍ2007°æ±¾µÄExcel
-            try {
-                //´´½¨ÎÄ¼şÁ÷
-                FileInputStream fis=new FileInputStream(new File(file));
-                //Í¨¹ı½Ó¿ÚÊµÀı»¯Workbook¹¤×÷²¾
-                Workbook workbook=PoiUtil.getWorkbook(fis,edition);
-                //Í¨¹ı½Ó¿Ú»ñµÃÄ¬ÈÏµÄµÚÒ»¸ösheetµÄÒ³Ãæ
-                Sheet sheet = workbook.getSheetAt(0);
-                //»ñÈ¡sheetÒ³µÄµÚÒ»ĞĞ
-                Row row1 = sheet.getRow(0);
+    public static  void readExcel(String file,int edition) throws Exception {//è¯»å–2003å’Œ2007ç‰ˆæœ¬çš„Excel
+        try {
+            //åˆ›å»ºæ–‡ä»¶æµ
+            FileInputStream fis=new FileInputStream(new File(file));
+            //é€šè¿‡æ¥å£å®ä¾‹åŒ–Workbookå·¥ä½œç°¿
+            Workbook workbook=PoiUtil.getWorkbook(fis,edition);
+            //é€šè¿‡æ¥å£è·å¾—é»˜è®¤çš„ç¬¬ä¸€ä¸ªsheetçš„é¡µé¢
+            Sheet sheet = workbook.getSheetAt(0);
+            //è·å–sheeté¡µçš„ç¬¬ä¸€è¡Œ
+            Row row1 = sheet.getRow(0);
 
-              //´ÓµÚ¶şĞĞ¿ªÊ¼¶Á£¬±éÀúµ½×îºóÒ»ĞĞ
-                for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-                    Row row = sheet.getRow(i);//µÃµ½Ã¿Ò»ĞĞ
-                    for (int j = 0; j < row.getLastCellNum(); j++) {//µÃµ½Ã¿Ò»ĞĞµÄÃ¿Ò»ÁĞ
-                        Cell cell = row.getCell(j);
-                        // ¸ù¾İexcelÖĞµ¥Ôª¸ñµÄÊôĞÔ£¬À´ÓÃ²»Í¬µÄ¸ñÊ½È¡µÃÓĞĞ§Öµ
-                        String cellValue = PoiUtil.getCellString(cell);
-                        System.out.println("µ¥Ôª¸ñÄÚÈİÎª:"+cellValue);
-                    }
+            //ä»ç¬¬äºŒè¡Œå¼€å§‹è¯»ï¼Œéå†åˆ°æœ€åä¸€è¡Œ
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);//å¾—åˆ°æ¯ä¸€è¡Œ
+                for (int j = 0; j < row.getLastCellNum(); j++) {//å¾—åˆ°æ¯ä¸€è¡Œçš„æ¯ä¸€åˆ—
+                    Cell cell = row.getCell(j);
+                    // æ ¹æ®excelä¸­å•å…ƒæ ¼çš„å±æ€§ï¼Œæ¥ç”¨ä¸åŒçš„æ ¼å¼å–å¾—æœ‰æ•ˆå€¼
+                    String cellValue = PoiUtil.getCellString(cell);
+                    System.out.println("å•å…ƒæ ¼å†…å®¹ä¸º:"+cellValue);
                 }
-                fis.close();
-                workbook.close();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-
+            fis.close();
+            workbook.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+    }
 
     public static void writeExcel(String file,int edition) throws Exception{
 
@@ -53,12 +53,12 @@ public class ExcelDemo {
         Sheet sheet=workbook.getSheetAt(0);
 
         try {
-            //»ñÈ¡µÚÒ»ĞĞ
+            //è·å–ç¬¬ä¸€è¡Œ
             Row row0=sheet.getRow(0);
-            //ÔÚµÚÒ»ĞĞµÚÒ»ÁĞĞ´ÈëÊı¾İ,ÀàĞÍÎªstring
+            //åœ¨ç¬¬ä¸€è¡Œç¬¬ä¸€åˆ—å†™å…¥æ•°æ®,ç±»å‹ä¸ºstring
             Cell cell0=row0.createCell(0, CellType.STRING);
             cell0.setCellValue("Order");
-            //ÔÚµÚ¶şĞĞ¿ªÊ¼Ğ´ÈëÊı¾İ
+            //åœ¨ç¬¬äºŒè¡Œå¼€å§‹å†™å…¥æ•°æ®
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 Row row = sheet.getRow(i);
 
@@ -69,11 +69,11 @@ public class ExcelDemo {
             e.printStackTrace();
         }
         fis.close();
-        //Ë¢ĞÂÁ÷µÄ»º´æÇø,½«Êı¾İĞ´Èëexcel
+        //åˆ·æ–°æµçš„ç¼“å­˜åŒº,å°†æ•°æ®å†™å…¥excel
         FileOutputStream fos=new FileOutputStream(file);
         fos.flush();
         workbook.write(fos);
-        //¹Ø±ÕÎÄ¼şÁ÷
+        //å…³é—­æ–‡ä»¶æµ
         fos.close();
         workbook.close();
 

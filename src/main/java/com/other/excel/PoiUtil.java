@@ -1,7 +1,9 @@
 package com.other.excel;
 
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.IOException;
@@ -11,8 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Util�ṩ�����о�̬�������صĶ�����Workbook�����һ������������������
- * @author learnhow
+ * Util提供的所有静态方法返回的对象都是Workbook，最后一步根据需求再做处理
  *
  */
 public class PoiUtil {
@@ -20,60 +21,82 @@ public class PoiUtil {
     public static final int Excel2007 = 2007;
 
     /**
-     * ���ݰ汾�ţ���ȡExcel poi����
+     * 根据版本号，获取Excel poi对象
      *
      * @param edition
      * @param in
      * @return
      * @throws IOException
      */
-    public static Workbook getWorkbook( InputStream in,int edition) throws IOException {
-        Workbook workbook;
+    public static Workbook getWorkbook(InputStream in, int edition) throws IOException {
         if (edition == Excel2003) {
-           workbook= new HSSFWorkbook(in);
+            return new HSSFWorkbook(in);
         } else if (edition == Excel2007) {
-            workbook= new XSSFWorkbook(in);
-        }else {
-            workbook=null;
+            return new XSSFWorkbook(in);
         }
-        return workbook;
+        return null;
     }
 
+    /*
+    *  判断excel文件是2003版的xml文件，还是xlsx文件
+    *  @param  inputFile
+    *  @return
+    * */
+    public static int getEdition(String inputFile){
+        int edition;
+        String xlsxFile=inputFile.substring(inputFile.length()-4,inputFile.length());
+        String xlsFile=inputFile.substring(inputFile.length()-3,inputFile.length());
+        if("xlsx" .equals(xlsxFile) ){
+            edition=Excel2007;
+        }else if(  "xls" .equals(xlsFile)) {
+            edition=Excel2003;
+        }else {
+            edition=0;
+        }
+        return edition;
+    }
+
+
     /**
-     * ��ȡ��Ԫ���Stringֵ
-     * �ı���ֱ�ӻ�ȡ,��ֵ�͵�һ����double���ͣ����ں�����Ҫ�ֿ�����
+     * 获取单元格的String值
+     * 文本型直接获取,数值型的一般是double类型，日期和数字要分开处理
      * @param cell
 
      * @return
      */
     public static String getCellString(Cell cell) {
-        String cellValue="";
+        String cellStr="";
+        if(cell==null) {
+            return cellStr;
+        }
         switch (cell.getCellTypeEnum()) {
             case STRING:
-                cellValue=cell.getStringCellValue();
-                if (cellValue.trim().isEmpty()) {
-                    cellValue = "";
+                cellStr=cell.getStringCellValue();
+                if (cellStr.trim().isEmpty()) {
+                    cellStr = "";
                 }
                 break;
             case NUMERIC:
                 if( DateUtil.isCellDateFormatted(cell)) {
                     Date date=cell.getDateCellValue();
-                    cellValue=new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(date);
+                    cellStr=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
                 }else {
                     BigDecimal bigDecimal=new BigDecimal(cell.getNumericCellValue());
-                    cellValue=bigDecimal.toString();
+                    cellStr=bigDecimal.toString();
                 }
                 break;
             case FORMULA:
-                cellValue = new BigDecimal(cell.getNumericCellValue()).toPlainString();
+                cellStr = new BigDecimal(cell.getNumericCellValue()).toPlainString();
                 break;
             case BLANK:
-                cellValue = "";
+                cellStr = "";
                 break;
             default:
                 break;
         }
-        return  cellValue.trim();
+
+        return  cellStr;
+
     }
 
 
@@ -81,7 +104,7 @@ public class PoiUtil {
 
 
     /**
-     * ��ָ��excel��������ж�ȡ����
+     * 从指定excel表格中逐行读取数据
      *
      * @param workbook
      * @param startRow
@@ -91,24 +114,24 @@ public class PoiUtil {
      */
     public static List<List<String>> getExcelString(Workbook workbook, int startRow, int startCol, int indexSheet) {
         List<List<String>> stringTable = new ArrayList<List<String>>();
-        // ��ȡָ�������
+        // 获取指定表对象
         Sheet sheet = workbook.getSheetAt(indexSheet);
-        // ��ȡ�������
+        // 获取最大行数
         int rowNum = sheet.getLastRowNum();
         for (int i = startRow; i <= rowNum; i++) {
             List<String> oneRow = new ArrayList<String>();
             Row row = sheet.getRow(i);
-            // ���ݵ�ǰָ���������������������
+            // 根据当前指针所在行数计算最大列数
             int colNum = row.getLastCellNum();
             for (int j = startCol; j <= colNum; j++) {
-                // ȷ����ǰ��Ԫ��
+                // 确定当前单元格
                 Cell cell = row.getCell(j);
                 String cellValue = null;
                 if (cell != null) {
-                    // ��֤ÿһ����Ԫ�������
+                    // 验证每一个单元格的类型
                     switch (cell.getCellType()) {
                         case Cell.CELL_TYPE_NUMERIC:
-                            // ����з��ص����������ǿ�ѧ��������˲���ֱ��ת�����ַ�����ʽ
+                            // 表格中返回的数字类型是科学计数法因此不能直接转换成字符串格式
                             cellValue = new BigDecimal(cell.getNumericCellValue()).toPlainString();
                             break;
                         case Cell.CELL_TYPE_STRING:
@@ -132,7 +155,7 @@ public class PoiUtil {
                 } else {
                     cellValue = "";
                 }
-                // ����һ������
+                // 生成一行数据
                 oneRow.add(cellValue);
             }
             stringTable.add(oneRow);
@@ -141,7 +164,7 @@ public class PoiUtil {
     }
 
     /**
-     * ���ݸ���������ֱ������workbook
+     * 根据给定的数据直接生成workbook
      *
      * @param workbook
      * @param sheetName
@@ -162,7 +185,7 @@ public class PoiUtil {
     }
 
     /**
-     * ��ָ����sheet���в������ݣ�����ķ������ṩһ��valueMap��int[]��2ά���������Ҫ������������꣬��0��ʼ
+     * 往指定的sheet表中插入数据，插入的方法是提供一组valueMap。int[]是2维数组代表需要插入的数据坐标，从0开始
      *
      * @param workbook
      * @param sheetIndex
@@ -185,7 +208,7 @@ public class PoiUtil {
     }
 
     /**
-     * ����ָ���е��и�
+     * 设置指定行的行高
      *
      * @param workbook
      * @param  rowHight
@@ -201,7 +224,7 @@ public class PoiUtil {
     }
 
     /**
-     * �����п�
+     * 设置列宽
      *
      * @param workbook
      * @param columnWidth
@@ -216,7 +239,7 @@ public class PoiUtil {
     }
 
     /**
-     * ɾ��ָ����
+     * 删除指定行
      *
      * @param workbook
      * @param sheetIndex
@@ -236,7 +259,7 @@ public class PoiUtil {
     }
 
     /**
-     * ��ָ��λ�ò���հ���
+     * 在指定位置插入空白行
      *
      * @param workbook
      * @param sheetIndex
@@ -248,11 +271,11 @@ public class PoiUtil {
         int lastRowNum = sheet.getLastRowNum();
         if (rowIndex >= 0 && rowIndex <= lastRowNum) {
             sheet.shiftRows(rowIndex, lastRowNum, 1);
-            // �����һ�е�Row����
+            // 获得上一行的Row对象
             Row preRow = sheet.getRow(rowIndex - 1);
             short rowNum = preRow.getLastCellNum();
             Row curRow = sheet.createRow(rowIndex);
-            // �����ɵ�Row��������һ������ͬ����Cell
+            // 新生成的Row创建与上一个行相同风格的Cell
             for (short i = preRow.getFirstCellNum(); i < rowNum; i++) {
                 Cell cell = preRow.getCell(i);
                 CellStyle style = cell.getCellStyle();
@@ -264,7 +287,7 @@ public class PoiUtil {
     }
 
     /**
-     * ����sheet(0)��Ϊģ���ؽ�workbook
+     * 根据sheet(0)作为模板重建workbook
      *
      * @param workbook
      * @param sheetNum
@@ -275,10 +298,10 @@ public class PoiUtil {
         if(sheetNames.length == sheetNum){
             for (int i = 0; i < sheetNum; i++) {
                 workbook.cloneSheet(0);
-                // ���ɺ���Ĺ�����ָ������
+                // 生成后面的工作表并指定表名
                 workbook.setSheetName(i + 1, sheetNames[i]);
             }
-            // ɾ����һ�Ź�����
+            // 删除第一张工作表
             workbook.removeSheetAt(0);
             return workbook;
         }

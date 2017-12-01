@@ -11,17 +11,13 @@ public class MatchesDemo {
           String regex2="\\d{4}-\\d{2}-\\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2}";
           String date=null;
 		if(dateStr.matches(regex1)){
-        	  System.out.println(dateStr+"�����ڸ�ʽ");
         	  String[] splitStr=dateStr.split("-");
         	  date=splitStr[0]+"0"+splitStr[1];
-        	  System.out.println("��ȡ�õ��������ǣ�"+date);
           }
 		if(dateStr.matches(regex2)){
-      	  System.out.println(dateStr+"�����ڸ�ʽ");
       	  String[] splitStr=dateStr.split("-");
     	  date=splitStr[0]+splitStr[1];
-    	  System.out.println("��ȡ�õ��������ǣ�"+date);
-		}  
+		}
 
 	}
 

@@ -22,8 +22,10 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/io/OutputStreamDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/io/ReadFileByLines.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/object/ObjectEquals.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/other/excel/ExcelDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/other/excel/ExcelDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/other/excel/ExcelWriteDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/other/excel/PoiUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/regex/MatchesDemo.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/regex/PatternDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/regex/RegexDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/regex/RegexTest.java" charset="UTF-8" />

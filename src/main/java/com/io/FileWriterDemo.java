@@ -10,6 +10,7 @@ public class FileWriterDemo {
 		FileWriter fw=new FileWriter(file,true);
 		String str="\n好好学习，天天向上";
 		fw.write(str);
+		//字符流如果不close()，在缓存区中的内容不会写入到文件中
 		fw.close();
 	}
 }

@@ -3,7 +3,7 @@ package com.exception;
 /**
  * Created by lenovo on 2017/8/22.
  */
-public class CatchExceptionTest {
+public class CatchException {
     public static void main(String[] args) {
         try{
             System.out.println("执行rty模块代码");

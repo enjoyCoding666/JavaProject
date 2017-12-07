@@ -10,7 +10,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/date/DateToString.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/date/SimpleDateFormatDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/date/StringToDate.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/exception/CatchExceptionTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/exception/CatchException.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/format/ParseTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/internet/ClientDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/internet/EchoThread.java" charset="UTF-8" />

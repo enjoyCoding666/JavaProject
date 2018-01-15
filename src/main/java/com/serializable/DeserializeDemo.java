@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
 public class DeserializeDemo {
     public static void main(String[] args) {
         Employee employee;
-        try {
+        try { 
             String fileName="D:\\employee.ser";
             FileInputStream fis=new FileInputStream(fileName);
             ObjectInputStream  oos=new ObjectInputStream(fis);

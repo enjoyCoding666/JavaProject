@@ -23,21 +23,11 @@ public class CarReflect {
      * @return
      * @throws Exception
      */
-    public static Car initByReflect() throws  Exception{
+    public static void initByReflect() throws  Exception{
         //实例化
         Class clazz=Class.forName("com.reflect.Car");
         Car car=(Car)clazz.newInstance();
-        //通过反射方法设置属性
-        Method setBrand=clazz.getMethod("setBrand",String.class);
-        setBrand.invoke(car,"雷克萨斯");
-        String methodName=setBrand.getName();
-        System.out.println("方法名："+methodName);
 
-        Method setColor=clazz.getMethod("setColor",String.class);
-        setColor.invoke(car,"黑色");
-        Method setMaxSpeed=clazz.getMethod("setMaxSpeed",int.class);
-        setMaxSpeed.invoke(car,120);
-        return  car;
     }
 
     /**
@@ -65,8 +55,7 @@ public class CarReflect {
 
 
     public static void main(String[] args) throws Exception {
-//        Car car=  initByDefaultConst();
-        Car car=initByReflect();
+        Car car=  initByDefaultConst();
         car.introduce();
     }
 }

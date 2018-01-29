@@ -1,6 +1,7 @@
 package com.reflect;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -20,6 +21,33 @@ public class CarReflect {
 
     }
 
+
+    /**
+     *  设置某个对象的公共属性
+     * @param object
+     * @param fieldName
+     * @return
+     * @throws Exception
+     */
+    public static void setPropertyByField(Object object,String fieldName,Object value) throws  Exception{
+        Field field=object.getClass().getDeclaredField(fieldName);
+        field.setAccessible(true);
+        field.set(object,value);
+        System.out.println(field.get(object) );
+    }
+
+    /**
+     *
+     * @param object
+     * @param fieldName
+     * @return
+     * @throws Exception
+     */
+   public static Object getPropertyByField(Object object,String fieldName) throws  Exception{
+        Field field=object.getClass().getDeclaredField(fieldName);
+        Object value=field.get(object);
+        return value;
+   }
 
     /**
      * 通过反射设置方法

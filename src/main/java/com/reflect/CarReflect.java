@@ -9,16 +9,6 @@ import java.lang.reflect.Method;
  */
 public class CarReflect {
     /**
-     * 获取类名、方法名等信息
-     */
-    public  void getClassName(){
-        String clazz = Thread.currentThread() .getStackTrace()[1].getClassName();
-        String method = Thread.currentThread() .getStackTrace()[1].getMethodName();
-        System.out.println("class:"+clazz+"\nmethod:"+method);
-    }
-
-
-    /**
      * 通过Class实例化
      * @return
      * @throws Exception
@@ -29,6 +19,38 @@ public class CarReflect {
         Car car=(Car)clazz.newInstance();
 
     }
+
+
+    /**
+     * 通过反射设置方法
+     * @param object         Class实例化的对象
+     * @param methodName    要操作的方法名
+     * @param value          设置的值
+     * @param classType     Class的类型
+     */
+    public static  void setterByReflect(Object object,String methodName,Object value,Class<?> classType){
+         try {
+             Method method=object.getClass().getMethod(methodName,classType);
+             method.invoke(object,value);
+         }catch (Exception e){
+             e.printStackTrace();
+         }
+    }
+
+    /**
+     * 通过反射调用方法
+     * @param object
+     * @param methodName
+     */
+    public static void getterByReflect(Object object,String methodName){
+           try {
+              Method method=object.getClass().getMethod(methodName);
+              method.invoke(object);
+           }catch (Exception e){
+               e.printStackTrace();
+           }
+    }
+
 
     /**
      * 通过构造器初始化
@@ -42,17 +64,22 @@ public class CarReflect {
         //获取类的默认构造器并通过它实例化
         Constructor constructor=clazz.getDeclaredConstructor(null);
         Car car=(Car)constructor.newInstance();
-        //通过反射方法设置属性
-        Method setBrand=clazz.getMethod("setBrand",String.class);
-        setBrand.invoke(car,"雷克萨斯");
-        Method setColor=clazz.getMethod("setColor",String.class);
-        setColor.invoke(car,"黑色");
-        Method setMaxSpeed=clazz.getMethod("setMaxSpeed",int.class);
-        setMaxSpeed.invoke(car,120);
+        //通过反射方法调用类中的方法，设置属性
+        setterByReflect(car,"setBrand","雷克萨斯",String.class);
+        setterByReflect(car,"setColor","黑色",String.class);
+        setterByReflect(car,"setMaxSpeed",120,int.class);
         return car;
 
     }
 
+    /**
+     * 获取类名、方法名等信息
+     */
+    public  void getClassName(){
+        String clazz = Thread.currentThread() .getStackTrace()[1].getClassName();
+        String method = Thread.currentThread() .getStackTrace()[1].getMethodName();
+        System.out.println("class:"+clazz+"\nmethod:"+method);
+    }
 
     public static void main(String[] args) throws Exception {
         Car car=  initByDefaultConst();

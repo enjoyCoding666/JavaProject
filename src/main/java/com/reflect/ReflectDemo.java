@@ -58,13 +58,10 @@ public class ReflectDemo {
      * @param value          设置的值
      * @param classType     Class的类型
      */
-    public static  void setterByReflect(Object object,String methodName,Object value,Class<?> classType){
-         try {
+    public static  void setterByReflect(Object object,String methodName,Object value,Class<?> classType) throws  Exception{
              Method method=object.getClass().getMethod(methodName,classType);
              method.invoke(object,value);
-         }catch (Exception e){
-             e.printStackTrace();
-         }
+
     }
 
     /**

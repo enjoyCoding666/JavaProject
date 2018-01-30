@@ -1,26 +1,26 @@
 package test.com.reflect; 
 
 import com.reflect.Car;
-import com.reflect.CarReflect;
+import com.reflect.ReflectDemo;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After; 
 
 /** 
-* CarReflect Tester. 
+* ReflectDemo Tester.
 * 
 * @author <Authors name> 
 * @since <pre>01/29/2018</pre> 
 * @version 1.0 
 */ 
-public class CarReflectTest {
+public class ReflectDemoTest {
 
-    CarReflect carReflect;
+    ReflectDemo carReflect;
     Car car;
 
     @Before
     public void before() throws Exception {
-        carReflect=new CarReflect();
+        carReflect=new ReflectDemo();
         car=new Car();
     }
 
@@ -46,7 +46,8 @@ public void testInitByReflect() throws Exception {
 @Test
 public void testSetPropertyByField() throws Exception { 
 //TODO: Test goes here...
-    Object object= carReflect.setPropertyByField(car,"color","黑色");
+
+     carReflect.setPropertyByField(car,"color","黑色");
 
 } 
 
@@ -57,7 +58,11 @@ public void testSetPropertyByField() throws Exception {
 */ 
 @Test
 public void testGetPropertyByField() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+    System.out.println("设置的color属性为：");
+    carReflect.setPropertyByField(car,"color","黑色");
+    Object object= carReflect.getPropertyByField(car,"color");
+    System.out.println(object.toString());
 } 
 
 /** 

@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 /**
  * Created by lenovo on 2017/6/23.
  */
-public class CarReflect {
+public class ReflectDemo {
     /**
      * 通过Class实例化
      * @return
@@ -31,9 +31,9 @@ public class CarReflect {
      */
     public static void setPropertyByField(Object object,String fieldName,Object value) throws  Exception{
         Field field=object.getClass().getDeclaredField(fieldName);
+        //将私有化的属性设为可访问
         field.setAccessible(true);
         field.set(object,value);
-        System.out.println(field.get(object) );
     }
 
     /**
@@ -45,6 +45,8 @@ public class CarReflect {
      */
    public static Object getPropertyByField(Object object,String fieldName) throws  Exception{
         Field field=object.getClass().getDeclaredField(fieldName);
+        //将私有化的属性设为可访问
+       field.setAccessible(true);
         Object value=field.get(object);
         return value;
    }
@@ -90,7 +92,7 @@ public class CarReflect {
         ClassLoader  loader=Thread.currentThread().getContextClassLoader();
         Class clazz=loader.loadClass("com.reflect.Car");
         //获取类的默认构造器并通过它实例化
-        Constructor constructor=clazz.getDeclaredConstructor(null);
+        Constructor constructor=clazz.getDeclaredConstructor();
         Car car=(Car)constructor.newInstance();
         //通过反射方法调用类中的方法，设置属性
         setterByReflect(car,"setBrand","雷克萨斯",String.class);

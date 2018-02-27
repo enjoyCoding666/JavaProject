@@ -11,16 +11,24 @@ import java.util.TreeMap;
  */
 public class MapOperation {
 
-    public static String mapToString(Map<String, String> map)
+    public static void ergodicMap(Map<Object,Object> map){
+        for(Map.Entry entry : map.entrySet()) {
+            System.out.println("key:"+entry.getKey()+"   value:"+entry.getValue());
+        }
+    }
+
+    public static String mapToString(Map<Object,Object> map)
     {
-        SortedMap<String, String> sortedMap = new TreeMap<String, String>(map);
+        SortedMap<Object,Object> sortedMap = new TreeMap<Object,Object>(map);
 
         StringBuilder sb = new StringBuilder();
 
         for (Map.Entry entry : sortedMap.entrySet()) {
-            System.out.println( "key:"+ entry.getKey() +"   value:"+entry.getValue());
+            sb.append( "key:"+ entry.getKey() +"  value:"+entry.getValue()+"\n");
         }
-
         return sb.length() == 0 ? "" : sb.toString();
     }
+
+
+
 }

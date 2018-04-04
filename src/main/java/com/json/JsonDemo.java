@@ -35,10 +35,6 @@ public class JsonDemo {
         for(User user : users) {
             System.out.println(user.toString());
         }
-
-
-
-
     }
 
 }

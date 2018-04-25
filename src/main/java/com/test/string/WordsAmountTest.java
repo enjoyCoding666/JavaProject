@@ -51,7 +51,7 @@ public void testCountWords() throws Exception {
 
 /** 
 * 
-* Method: printMap(Map<String,Integer> map) 
+* Method: printMap(MapOperation<String,Integer> map)
 * 
 */ 
 @Test

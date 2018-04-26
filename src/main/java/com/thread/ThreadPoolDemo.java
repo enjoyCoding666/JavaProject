@@ -1,5 +1,6 @@
 package com.thread;
 
+import com.bean.LocalUser;
 import sun.nio.ch.ThreadPool;
 
 import java.util.concurrent.ArrayBlockingQueue;
@@ -35,6 +36,7 @@ public class ThreadPoolDemo {
             System.out.println("正在执行task"+taskNum);
             try {
                 Thread.currentThread().sleep(4000);
+
             }catch (InterruptedException e){
                   e.printStackTrace();
             }

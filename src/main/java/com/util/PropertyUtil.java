@@ -9,6 +9,7 @@ import java.util.Properties;
 
 
 public class PropertyUtil {
+    private static  String propertiesFileName="jdbc.properties";
     private static final Logger logger = Logger.getLogger(PropertyUtil.class);
     private static Properties props= new Properties();
     static{
@@ -21,13 +22,13 @@ public class PropertyUtil {
 //        props = new Properties();
         InputStream in = null;
         try {
-//　　　　　　　<!--第一种，通过类加载器进行获取properties文件流-->
-            in = PropertyUtil.class.getClassLoader().getResourceAsStream("jdbc.properties");
+//　　　　　　　<!--第一种，通过类加载器进行获取properties文件流，路径为相对路径-->
+            in = PropertyUtil.class.getClassLoader().getResourceAsStream(propertiesFileName);
 //　　　　　　  <!--第二种，通过类进行获取properties文件流-->
-            //in = PropertyUtil.class.getResourceAsStream("/jdbc.properties");
+            //in = PropertyUtil.class.getResourceAsStream("propertiesFileName");
             props.load(in);
         } catch (FileNotFoundException e) {
-            logger.error("jdbc.properties文件未找到");
+            logger.error("properties文件未找到");
         } catch (IOException e) {
             logger.error("出现IOException");
         } finally {
@@ -36,7 +37,7 @@ public class PropertyUtil {
                     in.close();
                 }
             } catch (IOException e) {
-                logger.error("jdbc.properties文件流关闭出现异常");
+                logger.error("properties文件流关闭出现异常");
             }
         }
         logger.info("加载properties文件内容完成...........");

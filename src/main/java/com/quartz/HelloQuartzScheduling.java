@@ -8,7 +8,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * 详情参考博客：https://www.cnblogs.com/drift-ice/p/3817269.html
- * 
+ *
  */
 public class HelloQuartzScheduling {
     public static void main(String[] args) throws SchedulerException {

@@ -6,10 +6,10 @@ import org.quartz.JobExecutionException;
 
 import java.util.Date;
 
-public class HelloQuartzJob implements Job {
+public class QuartzJob implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        System.out.println("Hello,Quartz!----executing its Job at "+
-        new Date()+" by "+ jobExecutionContext.getTrigger().getKey().getName());
+        System.out.println(new Date());
+
     }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 参考博客：http://www.cnblogs.com/dolphin0520/p/3932921.html
  */
-public class ThreadPoolDemo {
+public class ThreadPoolExecutorDemo {
     public static void main(String[] args) {
         ThreadPoolExecutor executor=new ThreadPoolExecutor(5,10,200,
                 TimeUnit.MILLISECONDS,new ArrayBlockingQueue<Runnable>(5));
@@ -24,6 +24,9 @@ public class ThreadPoolDemo {
         executor.shutdown();
     }
 
+    /**
+     * 内部类实现Runnable接口，重写run()方法，以此来运用线程。
+     */
     static class MyTask implements  Runnable{
         private  int taskNum;
 
@@ -35,7 +38,7 @@ public class ThreadPoolDemo {
         public void run() {
             System.out.println("正在执行task"+taskNum);
             try {
-                Thread.currentThread().sleep(4000);
+                Thread.sleep(4000);
 
             }catch (InterruptedException e){
                   e.printStackTrace();

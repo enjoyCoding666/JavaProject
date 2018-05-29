@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-
+/**
+ * 读取项目内指定的properties文件
+ */
 public class PropertyUtil {
     private static  String propertiesFileName="jdbc.properties";
     private static final Logger logger = Logger.getLogger(PropertyUtil.class);

@@ -1,12 +1,16 @@
 package com.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by lenovo on  三月
  */
 public class Test {
     public static void main(String[] args) {
-        while( 1==1 ){
-            System.out.println("学好java");
-        }
+        List<String> list=new ArrayList<String>();
+        list.add("17875421001");
+        list.add("12372221098");
+
     }
 }

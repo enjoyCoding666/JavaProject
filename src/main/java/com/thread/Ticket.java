@@ -7,14 +7,15 @@ package com.thread;
  * @author Administrator
  *
  */
-class Ticket implements Runnable {//ͨ��Runnable�ӿ�ʵ�ֶ��̻߳���
+class Ticket implements Runnable {//???Runnable?????????????
+    @Override
     public void run() {
-        for (int i = 0; i < 10; ++i) {  //����ΪʲôҪѭ������Ȼ�����ֲ���ֻ��һ��Ʊ
+        for (int i = 0; i < 10; ++i) {  //????????????????????????????????
             sale();
         }
     }
  
-    public synchronized void sale() {       //�ڷ�����ǰ����ӻ�����,��֤ͬ��
+    public synchronized void sale() {       //??????????????????,??????
         if (count > 0) {
             try {
                 Thread.sleep(1000);
@@ -27,8 +28,8 @@ class Ticket implements Runnable {//ͨ��Runnable�ӿ�ʵ�ֶ��̻߳�
  
     public static void main(String[] args) {
         Ticket he = new Ticket();
-        Thread h1 = new Thread(he);   //��runnable������Ϊ�������½��߳�
-        Thread h2 = new Thread(he);   //���������������Ʊ��
+        Thread h1 = new Thread(he);   //??runnable???????????????????
+        Thread h2 = new Thread(he);   //??????????????????
         Thread h3 = new Thread(he);
         h1.start();
         h2.start();

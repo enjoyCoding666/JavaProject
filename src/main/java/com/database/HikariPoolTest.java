@@ -6,6 +6,11 @@ import java.sql.Statement;
 
 public class HikariPoolTest {
     public static void main(String[] args) throws Exception {
+           queryByHikari();
+    }
+
+
+    public static void queryByHikari() throws Exception {
         Connection connection= HikariPoolManager.getConnection();
         Statement statement=connection.createStatement();
         String sql="select user_name from user where id=1" ;

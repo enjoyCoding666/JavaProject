@@ -33,6 +33,8 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/test/string/WordsAmountTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/thread/RunnableDemo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/thread/RunnableDemo2.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/thread/ThreadDemo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/thread/Ticket.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -22,6 +22,14 @@ public class ThreadPoolExecutorDemo {
                     executor.getQueue().size()+"，已执行完别的任务数目："+executor.getCompletedTaskCount());
         }
         executor.shutdown();
+
+//        MyTask myTask=new MyTask(0);
+//        executor.execute(myTask);
+//        MyTask myTask1=new MyTask(1);
+//        executor.execute(myTask1);
+//        MyTask myTask2=new MyTask(2);
+//        executor.execute(myTask2);
+//        executor.shutdown();
     }
 
     /**

@@ -11,6 +11,9 @@ public class RunnableDemo {
 	}
 }
 
+/**
+ * 通过实现Runnable接口，新建线程类
+ */
 
 class MyThread implements  Runnable{
 	private String name;

@@ -1,7 +1,10 @@
 package com.thread.waitAndNotify;
 
 public class Service {
-
+    /**
+     * wait()和notify()方法，是Object类的方法。使用时，必须加上同步锁。
+     * @param lock
+     */
     public void testMethod(Object lock) {
         try {
             synchronized (lock) {

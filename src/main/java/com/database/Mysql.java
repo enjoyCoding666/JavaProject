@@ -2,10 +2,10 @@ package com.database;
 
 
 
-import java.sql.*;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+
+import java.sql.*;
 
 public class Mysql {
     private Connection conn;

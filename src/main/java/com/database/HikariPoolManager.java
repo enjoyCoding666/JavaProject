@@ -1,5 +1,7 @@
 package com.database;
 
+
+
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -9,6 +11,7 @@ import java.sql.Connection;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+
 /**
  * Hikari的 连接池
  * @author Michael
@@ -17,7 +20,7 @@ import java.util.ResourceBundle;
  */
 public class HikariPoolManager {
 
-    static Logger logger = LogManager.getLogger(HikariPoolManager.class);
+    static Logger logger= LogManager.getLogger(HikariPoolManager.class);
 
     //-- Hikari Datasource -->  
     //driverClassName无需指定，除非系统无法自动识别 
@@ -38,7 +41,7 @@ public class HikariPoolManager {
     private static int maxLifetime;
     // 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count) -->  
     private static int maximumPoolSize;
-    static  HikariDataSource hikariDataSource = new HikariDataSource();
+    static HikariDataSource hikariDataSource = new HikariDataSource();
     private  static  String propertyFileName="src/main/resource/hikariConfig.properties";
 
     static {

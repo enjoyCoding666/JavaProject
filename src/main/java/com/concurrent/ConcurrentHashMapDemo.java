@@ -4,9 +4,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by lenovo on  七月
+ * ConcurrentHashMap允许同时进行增加，删除，更新，遍历。
  */
-public class ConcurrentHashMapTest {
+public class ConcurrentHashMapDemo {
     private static ConcurrentHashMap<String,String> concurrentHashMap=new ConcurrentHashMap<>();
 
     public static void main(String[] args) throws InterruptedException {

@@ -1,5 +1,6 @@
 package com.concurrent;
 
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -12,15 +13,19 @@ public class ConcurrentHashMapTest {
             Thread addThread=new Thread(new AddThread());
             Thread removeThread =new Thread(new RemoveThread());
             addThread.start();
-            Thread.sleep(2*1000);
             removeThread.start();
+            Thread.sleep(5*1000);
+            System.out.println("开始遍历ConcurHashMap:");
+            for(Map.Entry<String ,String > mapEntry : concurrentHashMap.entrySet()) {
+                    System.out.println("key: "+mapEntry.getKey()+"   ,value: "+mapEntry.getValue());
+            }
     }
 
    static class AddThread implements Runnable {
 
         @Override
         public void run() {
-                for(int i=1;i<5;i++) {
+                for(int i=1;i<10;i++) {
                     concurrentHashMap.put("key"+i,String.valueOf(i));
                     System.out.println("add key :"+i+"  ,value:");
                 }

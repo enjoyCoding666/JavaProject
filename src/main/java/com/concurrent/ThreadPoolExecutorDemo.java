@@ -1,7 +1,4 @@
-package com.thread;
-
-import com.bean.LocalUser;
-import sun.nio.ch.ThreadPool;
+package com.concurrent;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

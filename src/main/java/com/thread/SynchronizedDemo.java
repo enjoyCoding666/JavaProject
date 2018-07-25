@@ -29,6 +29,7 @@ package com.thread;
       *       }
       *     }
       */
+        @Override
         public synchronized void run() {
             System.out.println("线程名称:"+Thread.currentThread().getName());
             System.out.println(Thread.currentThread().getName()+"调用结束");

@@ -7,14 +7,18 @@ package com.thread;
  * @author Administrator
  *
  */
-class Ticket implements Runnable {
+class SynchronizedDemo2 implements Runnable {
+    private int count = 5;
     @Override
     public void run() {
         for (int i = 0; i < 10; ++i) {
             sale();
         }
     }
- 
+
+    /**
+     * 通过synchronized保证一张票只卖一次。
+     */
     public synchronized void sale() {
         if (count > 0) {
             try {
@@ -27,7 +31,7 @@ class Ticket implements Runnable {
     }
  
     public static void main(String[] args) {
-        Ticket he = new Ticket();
+        SynchronizedDemo2 he = new SynchronizedDemo2();
         Thread h1 = new Thread(he);
         Thread h2 = new Thread(he);
         Thread h3 = new Thread(he);
@@ -36,5 +40,5 @@ class Ticket implements Runnable {
         h3.start();
     }
  
-    private int count = 5;
+
 }

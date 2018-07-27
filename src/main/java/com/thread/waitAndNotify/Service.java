@@ -3,14 +3,14 @@ package com.thread.waitAndNotify;
 public class Service {
     /**
      * wait()和notify()方法，是Object类的方法。使用时，必须加上同步锁。
-     * @param lock
+     * @param object
      */
-    public void testMethod(Object lock) {
+    public void synWait(Object object) {
         try {
-            synchronized (lock) {
+            synchronized (object) {
                 System.out.println("begin wait() ThreadName="
                         + Thread.currentThread().getName());
-                lock.wait();
+                object.wait();
                 System.out.println("  end wait() ThreadName="
                         + Thread.currentThread().getName());
             }
@@ -19,13 +19,13 @@ public class Service {
         }
     }
 
-    public void synNotifyMethod(Object lock) {
+    public void synNotify(Object object) {
         try {
-            synchronized (lock) {
+            synchronized (object) {
                 System.out.println("begin notify() ThreadName="
                         + Thread.currentThread().getName() + " time="
                         + System.currentTimeMillis());
-                lock.notify();
+                object.notify();
                 Thread.sleep(5000);
                 System.out.println("  end notify() ThreadName="
                         + Thread.currentThread().getName() + " time="

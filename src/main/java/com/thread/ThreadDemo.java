@@ -3,8 +3,8 @@ package com.thread;
 
 public class ThreadDemo {
 	  public static void main(String args[]){
-		  ThreadTest thread1=new ThreadTest("thread1");
-		  ThreadTest thread2=new ThreadTest("thread2");
+		  ThreadCount thread1=new ThreadCount("thread1");
+		  ThreadCount thread2=new ThreadCount("thread2");
 		  thread1.start();
 		  thread2.start();
 		  
@@ -14,9 +14,9 @@ public class ThreadDemo {
 /**
  * 通过继承Thread，新建线程类。
  */
-	class ThreadTest extends Thread{
+	class ThreadCount extends Thread{
 		private String name;
-		public ThreadTest(String name){
+		public ThreadCount(String name){
 			this.name=name;
 		}
 		@Override

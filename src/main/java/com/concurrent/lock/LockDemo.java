@@ -3,8 +3,9 @@ package com.concurrent.lock;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+
 /**
- * Created by lenovo on  七月
+ * 可重入锁ReentrantLock。功能类似于synchronized。保证线程同步。防止多个线程同时并发访问程序的某些资源。
  */
 public class LockDemo {
     public static void main(String[] args) {
@@ -17,9 +18,6 @@ public class LockDemo {
     }
 }
 
-/**
- * 售票线程。
- */
 
 class Ticket implements Runnable{
     private int tick = 100;

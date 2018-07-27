@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 读写锁。
+ * 读写锁ReentrantReadWriteLock。多个线程操作同一资源，读和读可以共存，写写不共存，写读不共存。
  */
 public class ReadWriteLockDemo {
 

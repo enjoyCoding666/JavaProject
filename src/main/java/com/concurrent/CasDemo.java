@@ -12,6 +12,7 @@ public class CasDemo {
         for(int i=0; i<10; i++){
             // 创建10个线程,模拟多线程环境
             new Thread(new Runnable(){
+                @Override
                 public void run(){
                     int expectedValue = cas.get();
 

@@ -1,9 +1,10 @@
 package com.concurrent;
 
 /**
- *  模拟CAS 算法。
+ *
  *  CAS（Compare and swap）比较和替换是设计并发算法时用到的一种技术。
  *  简单来说，比较和替换是使用一个期望值和一个变量的当前值进行比较，如果当前变量的值与我们期望的值相等，就使用一个新值替换当前变量的值。
+ *  以下用同步锁synchronized模拟CAS 算法。注意：真正的CAS算法是无锁的。
  */
 public class CasDemo {
     public static void main(String[] args) {
@@ -16,8 +17,7 @@ public class CasDemo {
                 public void run(){
                     int expectedValue = cas.get();
 
-                    boolean b = cas.compareAndSet(expectedValue, (int)(Math.random()*100));
-                    System.out.println(b);
+                    boolean b = cas.compareAndSwap(expectedValue, (int)(Math.random()*5));
                 }
             }).start();
         }
@@ -32,19 +32,17 @@ public class CasDemo {
              return  value;
          }
 
-         // 无论更新成功与否,都返回修改之前的内存值
-         public  synchronized  int compareAndSwap(int expectedValue,int newValue) {
+         // 比较当前值和期望值,相同就替换。
+         public  synchronized  boolean compareAndSwap(int expectedValue,int newValue) {
              //获取旧值
              int oldValue=value;
              if(oldValue==expectedValue) {
                     this.value=newValue;
+                    System.out.println(Thread.currentThread().getName()+"比较当前值和期望值，结果一致，将其替换为新值。");
+                    return true;
              }
-               return  oldValue;
-         }
-
-       //比较当前值和期望值，判断是否设置成功
-        public synchronized boolean compareAndSet(int expectedValue, int newValue) {
-              return  expectedValue==compareAndSwap(expectedValue,newValue);
+             System.out.println(Thread.currentThread().getName()+"比较当前值和期望值，结果不一致，不替换为新值");
+             return  false;
          }
     }
 }

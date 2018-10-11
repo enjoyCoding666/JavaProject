@@ -1,11 +1,13 @@
-package test.com.collection; 
+package com.collection;
 
-import com.collection.MapOperation;
-import org.junit.Test;
-import org.junit.Before; 
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 /** 
 * MapOperation Tester. 

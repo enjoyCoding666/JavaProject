@@ -1,9 +1,8 @@
-package test.com.json; 
+package com.json;
 
-import com.json.JsonDemo;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After; 
 
 /** 
 * JsonDemo Tester. 

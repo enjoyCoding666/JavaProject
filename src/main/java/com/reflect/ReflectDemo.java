@@ -14,68 +14,45 @@ public class ReflectDemo {
      * @return
      * @throws Exception
      */
-    public static void initByReflect() throws  Exception{
-        //实例化
+    public  void initByReflect() throws  Exception{
+        //获取class，并实例化
         Class clazz=Class.forName("com.reflect.Car");
         Car car=(Car)clazz.newInstance();
-
+        //也可以通过以下代码获取Class
+//        Class carClass=new Car().getClass();
     }
 
 
-    /**
-     *  设置某个对象的公共属性
-     * @param object
-     * @param fieldName
-     * @return
-     * @throws Exception
-     */
-    public static void setPropertyByField(Object object,String fieldName,Object value) throws  Exception{
-        Field field=object.getClass().getDeclaredField(fieldName);
+    public  void setPropertyByField( ) throws  Exception{
+        Class carClass=  Class.forName("com.reflect.Car");
+        Car car=(Car)carClass.newInstance();
+        Field field=carClass.getDeclaredField("color");
         //将私有化的属性设为可访问
         field.setAccessible(true);
-        field.set(object,value);
+        field.set(car,"黑色");             //相当于car.setCalor("黑色);
+        System.out.println("通过反射获取属性："+ car.getColor());
     }
 
-    /**
-     *
-     * @param object
-     * @param fieldName
-     * @return
-     * @throws Exception
-     */
-   public static Object getPropertyByField(Object object,String fieldName) throws  Exception{
-        Field field=object.getClass().getDeclaredField(fieldName);
+
+   public  Object getPropertyByField() throws  Exception{
+        Car car=new Car("bmw","白色",350);
+        Field field=car.getClass().getDeclaredField("color");
         //将私有化的属性设为可访问
        field.setAccessible(true);
-        Object value=field.get(object);
+       Object value=field.get(car);
+       System.out.println(value);
         return value;
    }
 
     /**
-     * 通过反射设置方法
-     * @param object         Class实例化的对象
-     * @param methodName    要操作的方法名
-     * @param value          设置的值
-     * @param classType     Class的类型
-     */
-    public static  void setterByReflect(Object object,String methodName,Object value,Class<?> classType) throws  Exception{
-             Method method=object.getClass().getMethod(methodName,classType);
-             method.invoke(object,value);
-
-    }
-
-    /**
      * 通过反射调用方法
-     * @param object
-     * @param methodName
      */
-    public static void getterByReflect(Object object,String methodName){
-           try {
-              Method method=object.getClass().getMethod(methodName);
-              method.invoke(object);
-           }catch (Exception e){
-               e.printStackTrace();
-           }
+    public  static void setterByReflect() throws  Exception{
+            Class<?> carClass=Class.forName("com.reflect.Car");
+            Car car=(Car)carClass.newInstance();
+            Method method=carClass.getMethod("setColor", String.class);
+            method.invoke(car,"黑色");
+            System.out.println("通过反射调用方法的结果："+car.getColor());
     }
 
 
@@ -84,18 +61,14 @@ public class ReflectDemo {
      * @return
      * @throws Exception
      */
-    public  static Car initByDefaultConst() throws Exception {
-        //通过类加载器获取对象
+    public   void initByDefaultConst() throws Exception {
+        //通过类加载器获取Class
         ClassLoader  loader=Thread.currentThread().getContextClassLoader();
-        Class clazz=loader.loadClass("com.reflect.Car");
-        //获取类的默认构造器并通过它实例化
-        Constructor constructor=clazz.getDeclaredConstructor();
-        Car car=(Car)constructor.newInstance();
-        //通过反射方法调用类中的方法，设置属性
-        setterByReflect(car,"setBrand","雷克萨斯",String.class);
-        setterByReflect(car,"setColor","黑色",String.class);
-        setterByReflect(car,"setMaxSpeed",120,int.class);
-        return car;
+        Class<?> clazz=loader.loadClass("com.reflect.Car");
+        //获取类的所有构造器并通过它实例化，要注意在Car类中构造器的顺序
+        Constructor<?> constructor[]=clazz.getConstructors();
+        Car car=(Car) constructor[0].newInstance("BMW","黑色",200);
+        car.introduce();
 
     }
 
@@ -108,8 +81,4 @@ public class ReflectDemo {
         System.out.println("class:"+clazz+"\nmethod:"+method);
     }
 
-    public static void main(String[] args) throws Exception {
-        Car car=  initByDefaultConst();
-        car.introduce();
-    }
 }

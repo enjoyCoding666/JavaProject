@@ -7,3 +7,5 @@ java的IO示例代码：  <br>
 https://github.com/firefoxer1992/JavaDemo/tree/master/src/main/java/com/io   <br>
 java集合示例代码： <br>
 https://github.com/firefoxer1992/JavaDemo/tree/master/src/main/java/com/collection  <br>
+java的NIO代码示例：<br>
+https://github.com/firefoxer1992/JavaDemo/tree/master/src/main/java/com/nio   <br>

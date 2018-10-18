@@ -3,7 +3,7 @@ package com.internet;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class EchoThreadServer {
+public class ServerSocketDemo {
 
 	public static void main(String[] args) throws Exception{
 		// TODO Auto-generated method stub
@@ -15,7 +15,6 @@ public class EchoThreadServer {
 			System.out.println("服务器运行，等待客户端连接");
 			client=server.accept();   //接收客户端连接
 			new Thread(new EchoThread(client)).start();
-
 		}
 		server.close();
 	}

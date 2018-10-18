@@ -1,4 +1,4 @@
-package com.internet;
+package com.socket;
 
 import java.net.ServerSocket;
 import java.net.Socket;

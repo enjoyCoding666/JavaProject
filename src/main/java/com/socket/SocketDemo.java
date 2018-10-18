@@ -1,4 +1,4 @@
-package com.internet;
+package com.socket;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

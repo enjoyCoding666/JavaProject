@@ -1,7 +1,10 @@
-package com.internet;
+package com.socket;
 
 import java.net.InetAddress;
 
+/**
+ * InetAddress可以用来解析IP地址
+ */
 public class InetAddressDemo {
 	public static void main(String[] args) throws Exception{
 		InetAddress locAdd=null;

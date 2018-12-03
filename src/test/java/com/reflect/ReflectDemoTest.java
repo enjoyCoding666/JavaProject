@@ -1,6 +1,7 @@
-package com.reflect; 
+package com.reflect;
 
-import org.junit.Test; 
+import com.reflect.ReflectDemo;
+import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After; 
 

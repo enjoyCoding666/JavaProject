@@ -12,8 +12,8 @@ public class Swap {
             Value v = new Value(5,10);
             swap(v);
             System.out.println("使用swap()2交换：");
-            System.out.println(v.x);
-            System.out.println(v.y);
+            System.out.println(v.getX());
+            System.out.println(v.getY());
         }
 
         // 无效的交换：形参的改变无法反作用于实参
@@ -25,18 +25,34 @@ public class Swap {
 
         // 有效的交换：通过引用（变量指向一个对象）来修改成员变量
         public static void swap(Value value) {
-            int temp = value.x;
-            value.x = value.y;
-            value.y = temp;
+            int temp = value.getX();
+            value.setX(value.getY() );
+            value.setY(temp);
         }
     }
 
     class Value{
-        int x;
-        int y;
+       private int x;
+       private int y;
 
         public Value(int x,int y) {
             this.x = x;
+            this.y = y;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public void setX(int x) {
+            this.x = x;
+        }
+
+        public int getY() {
+            return y;
+        }
+
+        public void setY(int y) {
             this.y = y;
         }
     }

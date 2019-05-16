@@ -1,15 +1,15 @@
 package com.test.string;
 
 import com.string.WordsAmount;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After; 
 
 /** 
 * WordsAmount Tester.
 * 
 * @author <Authors name> 
-* @since <pre>ÈýÔÂ 23, 2017</pre> 
+* @since <pre>ï¿½ï¿½ï¿½ï¿½ 23, 2017</pre> 
 * @version 1.0 
 */ 
 public class WordsAmountTest {
@@ -20,7 +20,7 @@ public void before() throws Exception {
     wa=new WordsAmount();
     str="May you have enough happiness to make you sweet,\n" +
             "enough trials to make you strong,enough sorrow to keep you human,\n" +
-            "enough hope to make you happy? Always put yourself in others¡¯shoes.\n" +
+            "enough hope to make you happy? Always put yourself in othersï¿½ï¿½shoes.\n" +
             "If you feel that it hurts you,it probably hurts the other person, too.";
 } 
 

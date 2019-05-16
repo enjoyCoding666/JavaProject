@@ -1,8 +1,11 @@
 package com.bean;
 
+import lombok.extern.java.Log;
+
 /**
  * Created by lenovo on  十一月
  */
+
 public class Order {
     private String phoneNumber;
     private String doneCode;

@@ -1,7 +1,6 @@
 package com.collection;
 
 
-
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -11,24 +10,22 @@ import java.util.TreeMap;
  */
 public class MapOperation {
 
-    public static void ergodicMap(Map<Object,Object> map){
-        for(Map.Entry entry : map.entrySet()) {
-            System.out.println("key:"+entry.getKey()+"   value:"+entry.getValue());
+    public static void ergodicMap(Map<Object, Object> map) {
+        for (Map.Entry entry : map.entrySet()) {
+            System.out.println("key:" + entry.getKey() + "   value:" + entry.getValue());
         }
     }
 
-    public static String mapToString(Map<Object,Object> map)
-    {
-        SortedMap<Object,Object> sortedMap = new TreeMap<Object,Object>(map);
+    public static String mapToString(Map<Object, Object> map) {
+        SortedMap<Object, Object> sortedMap = new TreeMap<Object, Object>(map);
 
         StringBuilder sb = new StringBuilder();
 
         for (Map.Entry entry : sortedMap.entrySet()) {
-            sb.append( "key:"+ entry.getKey() +"  value:"+entry.getValue()+"\n");
+            sb.append("key:" + entry.getKey() + "  value:" + entry.getValue() + "\n");
         }
         return sb.length() == 0 ? "" : sb.toString();
     }
-
 
 
 }

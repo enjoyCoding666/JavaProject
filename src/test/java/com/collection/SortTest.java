@@ -2,7 +2,7 @@ package com.collection;
 
 import org.junit.Test; 
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
 
 /** 
 * Sort Tester. 
@@ -27,8 +27,9 @@ public void after() throws Exception {
 * 
 */ 
 @Test
-public void testPhoneNumberSort() throws Exception { 
-//TODO: Test goes here... 
+public static void testPhoneNumberSort() throws Exception {
+//TODO: Test goes here...
+
 } 
 
 

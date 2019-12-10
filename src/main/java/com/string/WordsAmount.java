@@ -14,7 +14,7 @@ public class WordsAmount {
     public static void main(String[] args) {
         String str="apple 1 banana  2pear 23 banana pear pear";
         Map wordsMap=countEachWorld(str);
-        printMap( wordsMap );      ;
+        printMap( wordsMap );
     }
     //计算字符串中每一个单词出现的个数
     public static Map countWords(String str){

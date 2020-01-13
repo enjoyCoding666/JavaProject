@@ -1,4 +1,4 @@
-package com.enumdemo;
+package com.enumdemo.status;
 
 public enum StatusEnum {
     Success("1", "成功"),

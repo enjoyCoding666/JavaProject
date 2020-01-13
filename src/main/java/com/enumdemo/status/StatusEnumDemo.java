@@ -1,5 +1,7 @@
-package com.enumdemo;
+package com.enumdemo.status;
 
+
+import com.enumdemo.status.StatusEnum;
 
 public class StatusEnumDemo {
     public static void main(String[] args) {

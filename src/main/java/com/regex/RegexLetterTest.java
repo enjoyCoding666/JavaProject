@@ -3,7 +3,7 @@ package com.regex;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexTest {
+public class RegexLetterTest {
 	public static void main(String args[]){
 		//输入字符串，然后验证是否符合格式
 		String str="QQabc4755";

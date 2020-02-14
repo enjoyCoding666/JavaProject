@@ -16,4 +16,10 @@ class CharSwapDemoTest {
         String s = CharSwapDemo.swapCharInString("abcd");
         System.out.println(s);
     }
+
+    @Test
+    void reveserString() {
+        CharSwapDemo.reveserString();
+
+    }
 }

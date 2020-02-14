@@ -1,6 +1,7 @@
 package com.string;
 
 import com.alibaba.druid.sql.visitor.functions.Char;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @Author: lenovo
@@ -20,6 +21,13 @@ public class CharSwapDemo {
             sb.setCharAt(i, str.charAt(length - i - 1));
         }
         return sb.toString();
+    }
+
+    public static String reveserString() {
+        String str="abcd";
+        String str2 = StringUtils.reverse(str);
+        System.out.println(str2);
+        return str2;
     }
 
 }

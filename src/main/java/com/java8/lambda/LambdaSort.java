@@ -1,7 +1,6 @@
-package com.lambda;
+package com.java8.lambda;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class LambdaSort {

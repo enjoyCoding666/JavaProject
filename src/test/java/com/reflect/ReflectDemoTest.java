@@ -78,7 +78,7 @@ public void testInitByDefaultConst() throws Exception {
 
 /** 
 * 
-* Method: getClassName() 
+* Method: getPayClassName()
 * 
 */ 
 @Test

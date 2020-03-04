@@ -1,4 +1,4 @@
-package com.lambda;
+package com.java8.lambda;
 
 public class LambdaRunnable {
     public static void main(String[] args) {

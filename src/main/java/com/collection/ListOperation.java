@@ -12,16 +12,16 @@ public class ListOperation {
     /**
      * 遍历List
      */
-    public  void ergodic(List<String> list){
-          for(String str : list) {
-              System.out.println(str);
+    public static void ergodic(List<?> list){
+          for(Object o: list) {
+              System.out.println(o);
           }
     }
 
     /**
      * 通过Iterator遍历
      */
-    public void ergodicByIterator(List<String> list){
+    public static void ergodicByIterator(List<String> list){
         //创建集合的迭代器
         Iterator<String> iterator=list.iterator();
         //hasNext()检验是否还有下一个.

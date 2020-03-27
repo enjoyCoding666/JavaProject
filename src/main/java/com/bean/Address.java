@@ -47,7 +47,11 @@ public class Address {
 		this.city = city;
 	}
 
-	public Optional<String> getCity() {
-		return Optional.ofNullable(this.city);
+//	public Optional<String> getCity() {
+//		return Optional.ofNullable(this.city);
+//	}
+
+	public String getCity() {
+		return this.city;
 	}
 }

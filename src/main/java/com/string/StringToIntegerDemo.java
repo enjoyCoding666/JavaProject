@@ -16,7 +16,7 @@ public class StringToIntegerDemo {
 //		objectToString();
 //		nullToEmpty();
 //		strToInteger();
-		integerValueOfDemo();
+//		integerValueOfDemo();
 	}
 
 	public static void nullToEmpty() {
@@ -40,5 +40,10 @@ public class StringToIntegerDemo {
 		//str为非数字字符串时，报错： NumberFormatException:""
 		Integer value = Integer.valueOf(str);
 		System.out.println(value);
+	}
+
+	public static void intToInteger() {
+		int value=0;
+		Integer val=(Integer)value;
 	}
 }

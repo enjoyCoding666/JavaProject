@@ -35,12 +35,12 @@ public class OrElseGetDemo {
 
 	public static String functionB() {
 		System.out.println("functionB()...");
-		return "B";
+		return "Son";
 	}
 
 	public static String functionA() {
 		System.out.println("functionA()");
-//		return "A";
+//		return "Father";
 		return null;
 	}
 

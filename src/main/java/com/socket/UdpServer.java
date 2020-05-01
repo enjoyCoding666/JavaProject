@@ -13,7 +13,7 @@ public class UdpServer {
             DatagramPacket packet = new DatagramPacket(new byte[1024], 1024);
             server.receive(packet);
             System.out.println(packet.getAddress().getHostName() + "(" + packet.getPort() + "):" + new String(packet.getData()));
-            packet.setData("Hello Client".getBytes());
+            packet.setData("HelloWorld Client".getBytes());
             packet.setPort(5070);
             packet.setAddress(InetAddress.getLocalHost());
             server.send(packet);

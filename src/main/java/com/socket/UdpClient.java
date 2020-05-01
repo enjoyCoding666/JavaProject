@@ -15,7 +15,7 @@ public class UdpClient {
                 DatagramPacket packet = new DatagramPacket(new byte[1024],1024);
                 packet.setPort(5060);
                 packet.setAddress(InetAddress.getLocalHost());
-                packet.setData("Hello Server".getBytes());
+                packet.setData("HelloWorld Server".getBytes());
                 client.send(packet);
                 client.receive(packet);
                 System.out.println(packet.getAddress().getHostName() + "(" + packet.getPort() + "):" + new String(packet.getData()));

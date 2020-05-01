@@ -7,7 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateDemo {
-	public static void main(String args[]){
+
+	private static void formatCurrentTime() {
 		Date date1=new Date();
 		long currentTime = System.currentTimeMillis();
 
@@ -17,19 +18,16 @@ public class DateDemo {
 
 		System.out.println(date1);
 		System.out.println(formatter.format(date2));
-
-
-
 	}
 
-	public void dateToString(Date date) {
+	public static void dateToString(Date date) {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		String str=sdf.format(date);
 		System.out.println(date+"转化为字符串是："+str);
 	}
 
 
-	public void stringToDate() {
+	public static void stringToDate() {
 		//试着用SimpleDateFormat的parse方法将字符串转化为date类型
 		//MM必须大写。。区分月份和时间
 		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -44,7 +42,7 @@ public class DateDemo {
 		}
 	}
 
-	public void stringToDate2() {
+	public static void stringToDate2() {
 		String str="2016-07-21 15:41:52";
 		try {
 			Date date=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(str);
@@ -55,6 +53,12 @@ public class DateDemo {
 			System.out.println(new SimpleDateFormat("yyyy-MM-dd").format(date));
 		}catch(Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	public static void compareDate(Date date1,Date date2) {
+		if (date1.compareTo(date2) == 0) {
+			System.out.println(date1+"等于"+date2);
 		}
 	}
 

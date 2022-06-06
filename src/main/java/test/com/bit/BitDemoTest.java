@@ -30,7 +30,7 @@ public void after() throws Exception {
 @Test
 public void testAndDemo() throws Exception { 
 //TODO: Test goes here...
-    BitDemo.andDemo(8, 7);
+    BitDemo.andDemo();
 } 
 
 /** 
@@ -41,7 +41,7 @@ public void testAndDemo() throws Exception {
 @Test
 public void testOrDemo() throws Exception { 
 //TODO: Test goes here...
-    BitDemo.orDemo(8, 7);
+    BitDemo.orDemo();
 } 
 
 /** 
@@ -52,7 +52,7 @@ public void testOrDemo() throws Exception {
 @Test
 public void testXorDemo() throws Exception { 
 //TODO: Test goes here...
-    BitDemo.xorDemo(8, 7);
+    BitDemo.xorDemo();
 } 
 
 /** 
@@ -63,7 +63,7 @@ public void testXorDemo() throws Exception {
 @Test
 public void testReverseDemo() throws Exception { 
 //TODO: Test goes here...
-    BitDemo.reverseDemo(5);
+    BitDemo.reverseDemo();
 } 
 
 /** 
@@ -74,7 +74,7 @@ public void testReverseDemo() throws Exception {
 @Test
 public void testLeftDemo() throws Exception { 
 //TODO: Test goes here...
-    BitDemo.leftDemo(10);
+    BitDemo.leftDemo();
 } 
 
 /** 
@@ -85,7 +85,7 @@ public void testLeftDemo() throws Exception {
 @Test
 public void testRightDemo() throws Exception { 
 //TODO: Test goes here...
-    BitDemo.rightDemo(20);
+    BitDemo.rightDemo();
 } 
 
 

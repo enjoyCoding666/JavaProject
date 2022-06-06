@@ -31,8 +31,8 @@ public class BitDemo {
      *       某一个数x， x & 1 可以得到 x 除以 2 的余数。也就是说，可以用 x & 1 来判断奇偶数。
      *
      */
-    public static void andDemo(int num1, int num2) {
-        int result = num1 & num2;
+    public static void andDemo() {
+        int result = 8 & 7;
         System.out.println(result);
 
     }
@@ -48,9 +48,10 @@ public class BitDemo {
      *      结果:
      *      1111
      *
+     *      1111转化为十进制是15，也就是说 8 | 7 = 15.
      */
-    public static void orDemo(int num1, int num2) {
-        int result = num1 | num2;
+    public static void orDemo() {
+        int result = 8 | 7;
         System.out.println(result);
 
     }
@@ -59,11 +60,9 @@ public class BitDemo {
     /**
      * 异或	a ^ b	相同为0，相异为1
      *
-     * @param num1
-     * @param num2
      */
-    public static void xorDemo(int num1, int num2) {
-        int result = num1 ^ num2;
+    public static void xorDemo() {
+        int result = 5 ^ 10;
         System.out.println(result);
 
     }
@@ -73,8 +72,8 @@ public class BitDemo {
      *  ~	取反	~a	0的为1，1的为0
      *
      */
-    public static void reverseDemo(int num) {
-        int result = ~num;
+    public static void reverseDemo() {
+        int result = ~5;
         System.out.println(result);
     }
 
@@ -83,8 +82,8 @@ public class BitDemo {
      * 左移一位，相当于乘以2。
      *
      */
-    public static void leftDemo(int num) {
-        int result = num << 1;
+    public static void leftDemo() {
+        int result = 7 << 1;
         System.out.println(result);
     }
 
@@ -93,8 +92,8 @@ public class BitDemo {
      * 右移一位，相当于除以2。
      *
      */
-    public static void rightDemo(int num) {
-        int result = num >> 1;
+    public static void rightDemo() {
+        int result = 8 >> 1;
         System.out.println(result);
     }
 

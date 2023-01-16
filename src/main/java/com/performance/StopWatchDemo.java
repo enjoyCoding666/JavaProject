@@ -20,8 +20,13 @@ public class StopWatchDemo {
         Thread.sleep(1000);
         stopWatch.stop();
 
-        //统计耗时
+        System.out.println("总耗时以及各个任务耗时如下：\n");
         System.out.println(stopWatch.prettyPrint());
+        System.out.println("总耗时："+ stopWatch.getTotalTimeMillis());
+        System.out.println("最后一个任务的线程名称："+ stopWatch.getLastTaskName());
+
+
+
     }
 
 

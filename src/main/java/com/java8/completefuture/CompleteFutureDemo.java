@@ -24,12 +24,8 @@ public class CompleteFutureDemo {
         try {
             //获取返回值，2秒超时
             result = completableFuture.get(2, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            logger.error("InterruptedException error.", e);
-        } catch (ExecutionException e) {
-            logger.error("ExecutionException error.", e);
-        } catch (TimeoutException e) {
-            logger.error("TimeoutException error.", e);
+        } catch (Exception e) {
+            logger.error("completableFuture.get error.", e);
         }
         logger.info("result:"+result);
     }

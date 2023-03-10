@@ -1,6 +1,5 @@
 package com.java8.optional;
 
-import com.alibaba.fastjson.support.odps.udf.CodecCheck;
 import com.bean.Address;
 import com.bean.Worker;
 
@@ -140,7 +139,7 @@ public class OptionalDemo {
 		Address address = new Address("中国", "广东", "深圳");
 		Worker worker = new Worker("123", 18, "lin", address);
 		String city = Optional.ofNullable(worker)
-				.flatMap(Worker::getAdress)
+				.flatMap(Worker::getAddressOptional)
 				.map(Address::getCity)
 				.orElse("default");
 		System.out.println(city);

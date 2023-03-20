@@ -15,7 +15,9 @@ public class JsonDemo {
         String jsonString ="{\"name\":\"zhangsan\",\"password\":\"zhangsan123\",\"email\":\"10371443@qq.com\"}";
         JSONObject json = JSONObject.fromObject(jsonString);
         User user = new User();
-        user.setName(json.getString("name"));
+        String fullName = json.getString("name");
+        int age = json.getInt("age");
+        user.setName(fullName);
         user.setPassword(json.getString("password"));
         user.setEmail(json.getString("email"));
         System.out.println(user.toString());

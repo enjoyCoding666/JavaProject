@@ -3,8 +3,7 @@ package com.database;
 
 
 import com.zaxxer.hikari.HikariDataSource;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -18,9 +17,9 @@ import java.util.ResourceBundle;
  * @date 2017年8月9日18:46:41
  *
  */
+@Slf4j
 public class HikariPoolManager {
-
-    static Logger logger= LogManager.getLogger(HikariPoolManager.class);
+    
 
     //-- Hikari Datasource -->  
     //driverClassName无需指定，除非系统无法自动识别 
@@ -80,7 +79,7 @@ public class HikariPoolManager {
 
 
         } catch (Exception e){
-            logger.error("读取数据库参数出现问题："+e);
+            log.error("读取数据库参数出现问题："+e);
              e.printStackTrace();
         }
     }
@@ -115,7 +114,7 @@ public class HikariPoolManager {
 
 
         }catch(Exception e){
-            logger.error("设置datasource各个属性值异常!" + e);
+            log.error("设置datasource各个属性值异常!" + e);
              e.printStackTrace();
         }
     }
@@ -132,7 +131,7 @@ public class HikariPoolManager {
         try {
             connection = hikariDataSource.getConnection();
         } catch (Exception e) {
-            logger.error("取得数据库连接时发生异常!"+ e);
+            log.error("取得数据库连接时发生异常!"+ e);
             throw  e;
         }
         return connection;
@@ -148,7 +147,7 @@ public class HikariPoolManager {
             try {
                 connection.close();
             }catch(Exception e){
-                logger.error("释放数据库连接时发生异常!"+ e.getMessage());
+                log.error("释放数据库连接时发生异常!"+ e.getMessage());
             }
         }
     }

@@ -1,14 +1,14 @@
 package com.java8.completefuture;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.*;
 
 
+@Slf4j
 public class CompleteFutureDemo {
 
-    private static Logger logger= LogManager.getLogger(CompleteFutureDemo.class);
+
 
     public static void main(String[] args) {
         supplyAsyncGet();
@@ -25,9 +25,9 @@ public class CompleteFutureDemo {
             //获取返回值，2秒超时
             result = completableFuture.get(2, TimeUnit.SECONDS);
         } catch (Exception e) {
-            logger.error("completableFuture.get error.", e);
+            log.error("completableFuture.get error.", e);
         }
-        logger.info("result:"+result);
+        log.info("result:"+result);
     }
 
     private static String runTask() {
@@ -35,7 +35,7 @@ public class CompleteFutureDemo {
             //任务耗时。可以分别设置1000和3000，看未超时和超时的不同结果。
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            logger.error("supplyAsyncGet error.");
+            log.error("supplyAsyncGet error.");
         }
         return "supplyAsyncGet";
     }

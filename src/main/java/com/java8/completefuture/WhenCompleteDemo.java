@@ -1,17 +1,16 @@
 package com.java8.completefuture;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
 
+@Slf4j
 public class WhenCompleteDemo {
 
 
-    private static Logger logger= LogManager.getLogger(WhenCompleteDemo.class);
 
     public static void main(String[] args) {
         whenComplete();
@@ -28,7 +27,7 @@ public class WhenCompleteDemo {
                 () -> getResult(word1, 1000), executorService)
                 .whenComplete((result, throwable) ->{
                     if (throwable != null) {
-                        logger.error("completableFuture1  error:{}", throwable);
+                        log.error("completableFuture1  error:", throwable);
                     }
                 });
 
@@ -36,7 +35,7 @@ public class WhenCompleteDemo {
                 () -> getResult(word2, 1500), executorService)
                 .whenComplete((result, throwable) ->{
                     if (throwable != null) {
-                        logger.error("completableFuture2  error:{}", throwable);
+                        log.error("completableFuture2  error:", throwable);
                     }
                 });
 
@@ -63,7 +62,7 @@ public class WhenCompleteDemo {
             //任务耗时。可以分别设置1000和3000，看未超时和超时的不同结果。
             Thread.sleep(millis);
         } catch (InterruptedException e) {
-            logger.error("supplyAsyncGet error.");
+            log.error("supplyAsyncGet error.");
         }
         return result;
     }
@@ -74,11 +73,11 @@ public class WhenCompleteDemo {
             //获取返回值，2秒超时
             result = completableFuture.get(timeout, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
-            logger.error("InterruptedException error.", e);
+            log.error("InterruptedException error.", e);
         } catch (ExecutionException e) {
-            logger.error("ExecutionException error.", e);
+            log.error("ExecutionException error.", e);
         } catch (TimeoutException e) {
-            logger.error("TimeoutException error.", e);
+            log.error("TimeoutException error.", e);
         }
         return result;
     }

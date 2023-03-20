@@ -1,7 +1,7 @@
 package com.retry;
 
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
 
@@ -11,8 +11,8 @@ import java.util.Random;
  * 服务不稳定的时候，可以重试。
  *
  */
+@Slf4j
 public class RetryDemo {
-    private static final Logger log = Logger.getLogger(RetryDemo.class.getName());
 
     public static void main(String[] args) throws InterruptedException {
         retryDoSomething();

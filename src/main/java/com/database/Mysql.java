@@ -2,21 +2,20 @@ package com.database;
 
 
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
 
+@Slf4j
 public class Mysql {
     private Connection conn;
     private Statement smt;
-    private static Logger logger = Logger.getLogger(Mysql.class.getName());
 
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception e) {
-            logger.log(Level.ERROR, "Mysql:" + e.getMessage());
+            log.error("Mysql error:", e);
         }
     }
 
@@ -30,7 +29,7 @@ public class Mysql {
         try {
             rs = smt.executeQuery(sql);
         } catch (SQLException e) {
-            logger.log(Level.ERROR, sql+"\n" + e.getMessage());
+            log.error("executeQuery error:", e);
         }
         return rs;
     }
@@ -62,7 +61,7 @@ public class Mysql {
         }catch(Exception e) {
             if(conn!=null) {
                 conn.rollback();
-                logger.debug("数据已存在或存在错误，开始回滚。");
+                log.debug("数据已存在或存在错误，开始回滚。");
             }
         }
     }

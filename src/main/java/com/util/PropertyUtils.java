@@ -1,6 +1,6 @@
 package com.util;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.util.Properties;
@@ -11,8 +11,9 @@ import java.util.Properties;
  * @author lenovo
  *
  */
+@Slf4j
 public class PropertyUtils {
-    private static final Logger  logger = Logger.getLogger(PropertyUtil.class);
+
     private static Properties props;
     public static final String PATH_PROPERTIES="E:\\Test\\path.properties";
 
@@ -21,7 +22,7 @@ public class PropertyUtils {
     }
 
     synchronized static private void loadProps(){
-        logger.info("开始加载"+PATH_PROPERTIES+"的properties文件内容.......");
+        log.info("开始加载"+PATH_PROPERTIES+"的properties文件内容.......");
         props  = new Properties();
         InputStream in = null;
 
@@ -31,9 +32,9 @@ public class PropertyUtils {
             props.load(in);
 
         } catch (FileNotFoundException e) {
-            logger.error("properties文件未找到");
+            log.error("properties文件未找到");
         } catch (IOException e) {
-            logger.error("出现IOException");
+            log.error("出现IOException");
         } finally {
             try {
                 if(null != in) {
@@ -41,10 +42,10 @@ public class PropertyUtils {
                 }
 
             } catch (IOException e) {
-                logger.error("properties文件流关闭出现异常");
+                log.error("properties文件流关闭出现异常");
             }
         }
-        logger.info("加载properties文件内容完成...........");
+        log.info("加载properties文件内容完成...........");
     }
 
     public static String getProperty( String key){

@@ -1,16 +1,18 @@
 package com.java8.completefuture;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
 
+@Slf4j
 public class OfAllGetDemo {
 
-    private static Logger logger= LogManager.getLogger(OfAllGetDemo .class);
+
 
     public static void main(String[] args) {
         allOfGet();
@@ -35,7 +37,7 @@ public class OfAllGetDemo {
                     }
                     //触发异常
                     if (throwable != null) {
-                        logger.error("completableFuture1  error:{}", throwable);
+                        log.error("completableFuture1  error:{}", throwable);
                     }
                 });
 
@@ -46,7 +48,7 @@ public class OfAllGetDemo {
                         resultList.add(result);
                     }
                     if (throwable != null) {
-                        logger.error("completableFuture2  error:{}", throwable);
+                        log.error("completableFuture2  error:{}", throwable);
                     }
 
                 });
@@ -61,7 +63,7 @@ public class OfAllGetDemo {
             //将多个任务，汇总成一个任务，总共耗时不超时2秒
             CompletableFuture.allOf(futureArray).get(2, TimeUnit.SECONDS);
         } catch (Exception e) {
-            logger.error("CompletableFuture.allOf Exception error.", e);
+            log.error("CompletableFuture.allOf Exception error.", e);
         }
         List<String> list = new ArrayList<>(resultList);
 
@@ -75,7 +77,7 @@ public class OfAllGetDemo {
             //任务耗时。可以分别设置1000和3000，看未超时和超时的不同结果。
             Thread.sleep(millis);
         } catch (InterruptedException e) {
-            logger.error("supplyAsyncGet error.");
+            log.error("supplyAsyncGet error.");
         }
         return result;
     }

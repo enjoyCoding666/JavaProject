@@ -2,15 +2,16 @@ package com.database;
 
 import com.bean.LocalUser;
 import com.util.PropertyUtil;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import java.sql.PreparedStatement;
 import java.util.Properties;
 
+@Slf4j
 public class MysqlTest {
     private static String url;
     private static String user;
     private static String password;
-    private static Logger logger = Logger.getLogger(MysqlTest.class.getName());
+
 //    private static Properties prop = new Properties();
 
 

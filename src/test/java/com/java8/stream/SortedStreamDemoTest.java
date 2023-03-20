@@ -1,9 +1,8 @@
-package  test.com.java8.stream;
+package  com.java8.stream;
 
-import com.java8.stream.SortedStreamDemo;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After; 
 
 /** 
 * SortedStreamDemo Tester. 

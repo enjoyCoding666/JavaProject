@@ -19,8 +19,10 @@ public class OptionalListDemo {
         list.add("abc");
         list.add(null);
         list.add("xyz");
+        //filter(StringUtils::isNotBlank) 可以筛选出不为空的字符串
+        //filter(Objects::nonNull)  可以筛选出不为空的对象
         Optional.ofNullable(list).orElse(new ArrayList<>())
-                .stream().filter(StringUtils::isNotBlank).forEach(System.out::println);
+                .stream().filter(Objects::nonNull).forEach(System.out::println);
 
         //作用类似以下代码
 //        if (CollectionUtils.isNotEmpty(list)) {

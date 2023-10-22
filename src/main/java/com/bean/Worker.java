@@ -3,9 +3,6 @@ package com.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-import java.util.Optional;
 
 /**
  * @Author: EnjoyCoding
@@ -21,24 +18,6 @@ public class Worker {
     private Integer age;
 
     private String name;
-
-    private Address address;
-
-    public Worker(String id, Integer age, String name) {
-        this.id = id;
-        this.age = age;
-        this.name = name;
-    }
-
-
-    /**
-     * 返回Optional对象。
-     * @return
-     */
-    public Optional<Address> getAddressOptional() {
-        return Optional.ofNullable(this.address);
-    }
-
 
 
 }

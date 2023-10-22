@@ -68,7 +68,7 @@ public void testTooMuchNull() throws Exception {
 @Test
 public void testLitteNull() throws Exception {
 //TODO: Test goes here...
-	optionalDemo.flatMapDemo();
+
 }
 
 @Test

@@ -1,6 +1,5 @@
 package com.java8.optional;
 
-import com.bean.Address;
 import com.bean.Worker;
 
 import java.util.ArrayList;
@@ -80,8 +79,6 @@ public class OptionalDemo {
 	 * ifPresent()表示如果对象不为null，则会执行对应的lambda语句。
 	 */
 	public  void ifPresentDemo() {
-//		Address address=new Address("中国","广东","深圳");
-//		Worker worker1=new Worker("123",18,"lin",address);
 		Worker worker1 = new Worker("123", 18, "lin");
 //		Worker worker1=null;
 		List<String> nameList = new ArrayList<>();
@@ -135,15 +132,8 @@ public class OptionalDemo {
 	 * flatMap()，如果Optional封装对象不为空，就会执行对应的mapping函数，返回Optional类型的值。
 	 * 否则就返回一个空的Optional对象。
 	 */
-	public  void flatMapDemo() {
-		Address address = new Address("中国", "广东", "深圳");
-		Worker worker = new Worker("123", 18, "lin", address);
-		String city = Optional.ofNullable(worker)
-				.flatMap(Worker::getAddressOptional)
-				.map(Address::getCity)
-				.orElse("default");
-		System.out.println(city);
-	}
+
+
 
 	/**
 	 * orElseThrow(),如果Optional封装的对象为空，就会抛出对应的异常。

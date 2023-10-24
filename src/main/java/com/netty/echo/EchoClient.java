@@ -1,13 +1,15 @@
 package com.netty.echo;
 
+import com.netty.decoder.ClientNoDecoderHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
 
 /**
- * 客户端。发送数据给服务端，并接收服务端的响应。
+ * 客户端。发送消息给服务端，并接收服务端的响应。
  *
  */
 public final class EchoClient {
@@ -27,9 +29,11 @@ public final class EchoClient {
                         @Override
                         public void initChannel(SocketChannel socketChannel) throws Exception {
                             ChannelPipeline channelPipeline = socketChannel.pipeline();
-                            //channelPipeline.addLast(new LoggingHandler(LogLevel.INFO));
                             //ChannelHandler，用于处理 channel，实现对接收的数据的处理，实现业务逻辑。
-                            channelPipeline.addLast(new EchoClientHandler());
+                            //固定长度的拆包器 FixedLengthFrameDecoder
+                            channelPipeline.addLast(new FixedLengthFrameDecoder(19));
+                            channelPipeline.addLast(new ClientNoDecoderHandler());
+//                            channelPipeline.addLast(new EchoClientHandler());
                         }
                     });
 
@@ -42,4 +46,3 @@ public final class EchoClient {
         }
     }
 }
-

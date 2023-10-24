@@ -5,6 +5,7 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
@@ -30,15 +31,16 @@ public final class EchoServer {
                     //指定 channel
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 100)
-                    //指定 ChannelHandler，用于处理 channel
+                    //指定 ChannelHandler，用于处理 Channel
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             //ChannelPipeline，基于责任链模式，可以添加多个 ChannelHandler
                             ChannelPipeline channelPipeline = ch.pipeline();
-                            //channelPipeline.addLast(new LoggingHandler(LogLevel.INFO));
                             //ChannelHandler，用于处理 channel，实现对接收的数据的处理，实现业务逻辑。
+                            //固定长度的拆包器 FixedLengthFrameDecoder
+                            channelPipeline.addLast(new FixedLengthFrameDecoder(19));
                             channelPipeline.addLast(new EchoServerHandler());
                         }
                     });
@@ -55,5 +57,3 @@ public final class EchoServer {
         }
     }
 }
-
-
